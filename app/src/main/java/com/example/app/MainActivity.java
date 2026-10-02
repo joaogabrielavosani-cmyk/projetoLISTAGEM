@@ -1,6 +1,9 @@
 package com.example.app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    String nomes[] = new String[]{"Robson","João","mateus","Braian","Marcelo","Gaybriel","Erik"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +24,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+      ListView lb = findViewById(R.id.listview);
+        ArrayAdapter <String> usb = new ArrayAdapter<>(getApplicationContext(), R.layout.novolayout, R.id.textView2, nomes);
+
+        lb.setAdapter(usb);
+        lb.setOnItemClickListener((parent, view, position, id) -> {});
     }
 }
